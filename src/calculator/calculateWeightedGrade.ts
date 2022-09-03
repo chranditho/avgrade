@@ -4,11 +4,15 @@ export interface Course {
     grade?: number;
 }
 
-const calculateWeightedGrade = (course: Course) => {
+export const calculateWeightedGrade = (course: Course) => {
     if (course.grade === undefined) {
         return 0;
     }
     return course.ECTS * course.grade;
 }
 
-export default calculateWeightedGrade;
+export const calculateAverageWeightedGrade = (courses: Course[]) => {
+    const totalWeightedGrade = courses.reduce((sum, course) => sum + calculateWeightedGrade(course), 0);
+    const totalECTS = courses.reduce((sum, course) => sum + course.ECTS, 0);
+    return totalWeightedGrade / totalECTS;
+}

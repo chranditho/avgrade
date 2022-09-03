@@ -1,59 +1,86 @@
 import {describe, expect, it} from "vitest";
-import calculateWeightedGrade from "./calculateWeightedGrade";
+import {calculateAverageWeightedGrade, calculateWeightedGrade} from "./calculateWeightedGrade";
+
 
 describe("weightedGradeCalculator", () => {
 
-    it("should calculate the weighted grade SZENARIO 1", () => {
-        const course = {
-            ECTS: 5,
-            grade: 2,
-        }
-        const actual = calculateWeightedGrade(course);
-        const expected = 10;
+    describe("should return the weighted grade", () => {
 
-        expect(actual).toBe(expected);
+        it("SZENARIO 1", () => {
+            const course = {
+                ECTS: 5,
+                grade: 2,
+            }
+            const actual = calculateWeightedGrade(course);
+            const expected = 10;
+
+            expect(actual).toBe(expected);
+        });
+
+        it("SZENARIO 2", () => {
+            const course = {
+                ECTS: 4,
+                grade: 3,
+            }
+            const actual = calculateWeightedGrade(course);
+            const expected = 12;
+
+            expect(actual).toBe(expected);
+        });
+
+        it("SZENARIO 3", () => {
+            const course = {
+                ECTS: 2.5,
+                grade: 5,
+            }
+            const actual = calculateWeightedGrade(course);
+            const expected = 12.5;
+
+            expect(actual).toBe(expected);
+        });
+
+        it("SZENARIO 4", () => {
+            const course = {
+                ECTS: 1,
+                grade: 3,
+            }
+            const actual = calculateWeightedGrade(course);
+            const expected = 3;
+
+            expect(actual).toBe(expected);
+        });
+
+        it("SZENARIO 5", () => {
+            const course = {
+                ECTS: 4,
+            }
+            const actual = calculateWeightedGrade(course);
+            const expected = 0;
+
+            expect(actual).toBe(expected);
+        });
     });
 
-    it("should calculate the weighted grade SZENARIO 2", () => {
-        const course = {
-            ECTS: 4,
-            grade: 3,
-        }
-        const actual = calculateWeightedGrade(course);
-        const expected = 12;
+    describe("CalculateAverageWeightedGrade", () => {
+        it("should return the average weighted grade", () => {
+            const courses = [
+                {
+                    ECTS: 5,
+                    grade: 2,
+                },
+                {
+                    ECTS: 4,
+                    grade: 2,
+                },
+                {
+                    ECTS: 2,
+                    grade: 2,
+                }
+            ];
 
-        expect(actual).toBe(expected);
-    });
+            const actual = calculateAverageWeightedGrade(courses);
 
-    it("should calculate the weighted grade SZENARIO 3", () => {
-        const course = {
-            ECTS: 2.5,
-            grade: 5,
-        }
-        const actual = calculateWeightedGrade(course);
-        const expected = 12.5;
-
-        expect(actual).toBe(expected);
-    });
-
-    it("should calculate the weighted grade SZENARIO 4", () => {
-        const course = {
-            ECTS: 1,
-            grade: 3,
-        }
-        const actual = calculateWeightedGrade(course);
-        const expected = 3;
-
-        expect(actual).toBe(expected);
-    });
-
-    it("should calculate the weighted grade SZENARIO 5", () => {
-        const course = {
-            ECTS: 4,
-        }
-        const actual = calculateWeightedGrade(course);
-        const expected = 0;
-
-        expect(actual).toBe(expected);
+            expect(actual).toBe(2);
+        });
     });
 });
