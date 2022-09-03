@@ -3,9 +3,7 @@ import {calculateAverageWeightedGrade, calculateWeightedGrade} from "./calculate
 
 
 describe("weightedGradeCalculator", () => {
-
     describe("should return the weighted grade", () => {
-
         it("SZENARIO 1", () => {
             const course = {
                 ECTS: 5,
