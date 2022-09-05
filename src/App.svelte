@@ -15,6 +15,6 @@
     <Navbar/>
     <div class="flex gap-x-4 justify-center">
         <p>Gewichtete Note:</p>
-        <div>{weightedGrade}</div>
+        <div id="weightedGrade">{weightedGrade}</div>
     </div>
 </div>
