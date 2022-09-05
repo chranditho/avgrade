@@ -1,7 +1,8 @@
 {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "cypress/globals": true
     },
     "extends": [
         "eslint:recommended",
@@ -13,7 +14,8 @@
         "sourceType": "module"
     },
     "plugins": [
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "cypress"
     ],
     "rules": {
         "indent": [
@@ -31,6 +33,12 @@
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "cypress/no-assigning-return-values": "error",
+        "cypress/no-unnecessary-waiting": "error",
+        "cypress/assertion-before-screenshot": "warn",
+        "cypress/no-force": "warn",
+        "cypress/no-async-tests": "error",
+        "cypress/no-pause": "error"
     }
 }
