@@ -1,7 +1,7 @@
 <script lang="ts">
-    import Navbar from "./lib/Navbar.svelte";
-    import type {Course} from "./calculator/calculateWeightedGrade"
-    import {calculateAverageWeightedGrade} from "./calculator/calculateWeightedGrade"
+    import Navbar from './lib/Navbar.svelte';
+    import type {Course} from './calculator/calculateWeightedGrade';
+    import {calculateAverageWeightedGrade} from './calculator/calculateWeightedGrade';
 
     const math: Course = {ECTS: 5, grade: 3};
     const english: Course = {ECTS: 5, grade: 1};

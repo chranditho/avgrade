@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 describe('avGrade', () => {
 	beforeEach(() => {
 		cy.visit('localhost:5173');
