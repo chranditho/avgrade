@@ -3,6 +3,8 @@
   import type { Course } from "./calculator/calculateWeightedGrade";
   import { calculateAverageWeightedGrade } from "./calculator/calculateWeightedGrade";
   import { weightedGrade } from "./store.js";
+  import { Button } from "@brainandbones/skeleton";
+  import Logo from "./lib/Logo.svelte";
 
   let ECTS = 0;
   let grade = 0;
@@ -18,7 +20,7 @@
 
 </script>
 
-<div class="flex flex-col justify-center gap-y-12">
+<section class="flex flex-col justify-center gap-y-12 pt-48">
   <Navbar />
   <div class="flex gap-4 justify-center">
     <div>
@@ -30,9 +32,18 @@
       <input type="number" min="1" max="5" bind:value={grade} class="text-accent-500 rounded" />
     </div>
   </div>
-  <button on:click={setGrade}>Set</button>
+  <Button
+    variant="filled-primary"
+    on:click={setGrade}
+    width="w-32 self-center"
+  >
+    <svelte:fragment slot="lead">
+      <Logo />
+    </svelte:fragment>
+    Calculate
+  </Button>
   <div class="flex gap-x-4 justify-center">
     <p>Gewichtete Note:</p>
     <div id="weightedGrade">{$weightedGrade}</div>
   </div>
-</div>
+</section>
