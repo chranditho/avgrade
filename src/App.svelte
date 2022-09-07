@@ -24,12 +24,18 @@
   <Navbar />
   <div class="flex gap-4 justify-center">
     <div>
-      <p>ECTS</p>
-      <input type="number" bind:value={ECTS} class="appearance-none text-primary-500 dark:text-accent-300 dark:bg-neutral-800 rounded" />
+      <label class="block text-sm font-bold mb-2" for="grade">
+        ECTS
+      </label>
+      <input id="ECTS" type="number" bind:value={ECTS}
+             class="appearance-none text-primary-500 dark:text-accent-300 dark:bg-neutral-800 rounded w-72" />
     </div>
     <div>
-      <p>Grade</p>
-      <input type="number" min="1" max="5" bind:value={grade} class="appearance-none text-primary-500 dark:text-accent-300 dark:bg-neutral-800 rounded" />
+      <label class="block text-sm font-bold mb-2" for="grade">
+        Grade
+      </label>
+      <input id="grade" type="number" min="1" max="5" bind:value={grade}
+             class="appearance-none text-primary-500 dark:text-accent-300 dark:bg-neutral-800 rounded w-72" />
     </div>
   </div>
   <Button
@@ -42,7 +48,7 @@
     </svelte:fragment>
     Calculate
   </Button>
-  <div class="flex gap-x-4 justify-center">
+  <div class="flex gap-x-4 justify-center font-bold">
     <p>Gewichtete Note:</p>
     <div id="weightedGrade">{$weightedGrade}</div>
   </div>
