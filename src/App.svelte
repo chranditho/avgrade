@@ -1,20 +1,38 @@
 <script lang="ts">
-    import Navbar from "./lib/Navbar.svelte";
-    import type {Course} from "./calculator/calculateWeightedGrade";
-    import {calculateAverageWeightedGrade} from "./calculator/calculateWeightedGrade";
+  import Navbar from "./lib/Navbar.svelte";
+  import type { Course } from "./calculator/calculateWeightedGrade";
+  import { calculateAverageWeightedGrade } from "./calculator/calculateWeightedGrade";
+  import { weightedGrade } from "./store.js";
 
-    const math: Course = {ECTS: 5, grade: 3};
-    const english: Course = {ECTS: 5, grade: 1};
-    const spanish: Course = {ECTS: 1, grade: 4};
-    const courses: Course[] = [math, english, spanish];
+  let ECTS = 0;
+  let grade = 0;
 
-    const weightedGrade = calculateAverageWeightedGrade(courses);
+  const setGrade = () => {
+    let course: Course = {
+      ECTS,
+      grade
+    };
+    const result = calculateAverageWeightedGrade([course]);
+    weightedGrade.set(result);
+  };
+
 </script>
 
 <div class="flex flex-col justify-center gap-y-12">
-    <Navbar/>
-    <div class="flex gap-x-4 justify-center">
-        <p>Gewichtete Note:</p>
-        <div id="weightedGrade">{weightedGrade}</div>
+  <Navbar />
+  <div class="flex gap-4 justify-center">
+    <div>
+      <p>ECTS</p>
+      <input type="number" bind:value={ECTS} class="text-primary-500 rounded" />
     </div>
+    <div>
+      <p>Grade</p>
+      <input type="number" min="1" max="5" bind:value={grade} class="text-accent-500 rounded" />
+    </div>
+  </div>
+  <button on:click={setGrade}>Set</button>
+  <div class="flex gap-x-4 justify-center">
+    <p>Gewichtete Note:</p>
+    <div id="weightedGrade">{$weightedGrade}</div>
+  </div>
 </div>

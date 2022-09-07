@@ -16,6 +16,7 @@
   "devDependencies": {
     "@brainandbones/skeleton": "^0.32.19",
     "@sveltejs/vite-plugin-svelte": "^1.0.1",
+    "@tailwindcss/forms": "^0.5.3",
     "@tsconfig/svelte": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
