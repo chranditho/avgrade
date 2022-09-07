@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/*removes arrows of number input fields*/
+@layer base {
+  input[type=number]{
+    -moz-appearance: textfield;
+  }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
 :root {
-  @apply text-neutral-700 bg-neutral-50;
+  @apply text-neutral-700 bg-neutral-50 dark:bg-neutral-900 dark:text-neutral-50;
 }

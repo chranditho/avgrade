@@ -25,11 +25,11 @@
   <div class="flex gap-4 justify-center">
     <div>
       <p>ECTS</p>
-      <input type="number" bind:value={ECTS} class="text-primary-500 rounded" />
+      <input type="number" bind:value={ECTS} class="appearance-none text-primary-500 dark:text-accent-300 dark:bg-neutral-800 rounded" />
     </div>
     <div>
       <p>Grade</p>
-      <input type="number" min="1" max="5" bind:value={grade} class="text-accent-500 rounded" />
+      <input type="number" min="1" max="5" bind:value={grade} class="appearance-none text-primary-500 dark:text-accent-300 dark:bg-neutral-800 rounded" />
     </div>
   </div>
   <Button

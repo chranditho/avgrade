@@ -1,5 +1,6 @@
 <script>
   import { GradientHeading } from "@brainandbones/skeleton";
+
 </script>
 
 <div class="p-2">
