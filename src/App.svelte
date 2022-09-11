@@ -20,6 +20,7 @@
       }
     ]);
   };
+  const roundToTwoDigits = (number: number) => Math.round(number * 100) / 100;
 
 </script>
 
@@ -64,6 +65,6 @@
   </Button>
   <div class="flex gap-x-4 justify-center font-bold">
     <p>Gewichtete Note:</p>
-    <div id="weightedGrade">{$weightedGrade}</div>
+    <div id="weightedGrade">{roundToTwoDigits($weightedGrade)}</div>
   </div>
 </section>
