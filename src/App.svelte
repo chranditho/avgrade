@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Navbar from "./lib/Navbar.svelte";
+  import Header from "./lib/Navbar.svelte";
   import { calculateAverageWeightedGrade } from "./calculator/calculateWeightedGrade";
   import { courses, weightedGrade } from "./store.js";
   import { Button } from "@brainandbones/skeleton";
@@ -25,7 +25,7 @@
 </script>
 
 <section class="flex flex-col justify-center gap-y-12 pt-48">
-  <Navbar />
+  <Header />
   {#each $courses as course}
     <article class="flex gap-4 justify-center">
       <div>
