@@ -6,11 +6,11 @@
   import Logo from "./lib/Logo.svelte";
   import AddButton from "./lib/AddButton.svelte";
 
-  const setGrade = () => {
+  const setGrade = (): void => {
     const result = calculateAverageWeightedGrade($courses);
     weightedGrade.set(result);
   };
-  const addCourse = () => {
+  const addCourse = (): void => {
     let ECTS = 0, grade = 0;
     courses.update((courses) => [
       ...courses,
@@ -20,7 +20,7 @@
       }
     ]);
   };
-  const roundToTwoDigits = (number: number) => Math.round(number * 100) / 100;
+  const roundToTwoDigits = (number: number): number => Math.round(number * 100) / 100;
 
 </script>
 
