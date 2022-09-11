@@ -27,7 +27,7 @@
 <section class="flex flex-col justify-center gap-y-12 pt-48">
   <Navbar />
   {#each $courses as course}
-    <section class="flex gap-4 justify-center">
+    <article class="flex gap-4 justify-center">
       <div>
         <label class="block text-sm font-bold mb-2" for="grade">
           ECTS
@@ -42,7 +42,7 @@
         <input id="grade" type="number" min="1" max="5" bind:value={course.grade}
                class="appearance-none text-primary-500 dark:text-accent-300 dark:bg-neutral-800 rounded w-72" />
       </div>
-    </section>
+    </article>
   {/each}
   <Button
     on:click={addCourse}
@@ -63,8 +63,8 @@
     </svelte:fragment>
     Calculate
   </Button>
-  <div class="flex gap-x-4 justify-center font-bold">
+  <article class="flex gap-x-4 justify-center font-bold">
     <p>Gewichtete Note:</p>
     <div id="weightedGrade">{roundToTwoDigits($weightedGrade)}</div>
-  </div>
+  </article>
 </section>
