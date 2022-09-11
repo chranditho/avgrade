@@ -1,8 +1,7 @@
 <script lang="ts">
-  import Header from "./lib/Navbar.svelte";
   import { calculateAverageWeightedGrade } from "./calculator/calculateWeightedGrade";
   import { courses, weightedGrade } from "./store.js";
-  import { Button } from "@brainandbones/skeleton";
+  import { Button, GradientHeading } from "@brainandbones/skeleton";
   import Logo from "./lib/Logo.svelte";
   import AddButton from "./lib/AddButton.svelte";
 
@@ -25,7 +24,14 @@
 </script>
 
 <section class="flex flex-col justify-center gap-y-12 pt-48">
-  <Header />
+  <GradientHeading
+    tag="h1"
+    aria-level="1"
+    direction="bg-gradient-to-r" from="from-primary-500" to="to-accent-500"
+    class="text-5xl font-bold text-center mb-2"
+  >
+    avGrade
+  </GradientHeading>
   {#each $courses as course}
     <article class="flex gap-4 justify-center">
       <div>
