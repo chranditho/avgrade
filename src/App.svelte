@@ -3,8 +3,9 @@
   import { courses, weightedGrade } from "./store.js";
   import { Button, GradientHeading } from "@brainandbones/skeleton";
   import Logo from "./lib/Logo.svelte";
-  import AddButton from "./lib/AddButton.svelte";
   import formatter from "./util/formatter.js";
+  import AddIcon from "./lib/AddIcon.svelte";
+  import RemoveIcon from "./lib/RemoveIcon.svelte";
 
   const setGrade = (): void => {
     const result = calculateAverageWeightedGrade($courses);
@@ -19,6 +20,12 @@
         grade
       }
     ]);
+  };
+  const removeCourse = (index: number): void => {
+    courses.update((courses) => {
+      courses.splice(index, 1);
+      return courses;
+    });
   };
 </script>
 
@@ -49,15 +56,26 @@
       </div>
     </article>
   {/each}
-  <Button
-    on:click={addCourse}
-    width="w-32 self-center"
-  >
-    <svelte:fragment slot="lead">
-      <AddButton />
-    </svelte:fragment>
-    Add Course
-  </Button>
+  <article class="flex gap-4 justify-center">
+    <Button
+      on:click={addCourse}
+      width="w-40 self-center"
+    >
+      <svelte:fragment slot="lead">
+        <AddIcon />
+      </svelte:fragment>
+      Add Course
+    </Button>
+    <Button
+      on:click={removeCourse}
+      width="w-40 self-center"
+    >
+      <svelte:fragment slot="lead">
+        <RemoveIcon />
+      </svelte:fragment>
+      Remove Course
+    </Button>
+  </article>
   <Button
     variant="filled-primary"
     on:click={setGrade}
