@@ -4,6 +4,7 @@
   import { Button, GradientHeading } from "@brainandbones/skeleton";
   import Logo from "./lib/Logo.svelte";
   import AddButton from "./lib/AddButton.svelte";
+  import formatter from "./util/formatter.js";
 
   const setGrade = (): void => {
     const result = calculateAverageWeightedGrade($courses);
@@ -19,8 +20,6 @@
       }
     ]);
   };
-  const roundToTwoDigits = (number: number): number => Math.round(number * 100) / 100;
-
 </script>
 
 <section class="flex flex-col justify-center gap-y-12 pt-48">
@@ -71,6 +70,6 @@
   </Button>
   <article class="flex gap-x-4 justify-center font-bold">
     <p>Gewichtete Note:</p>
-    <div id="weightedGrade">{roundToTwoDigits($weightedGrade)}</div>
+    <div id="weightedGrade">{formatter.format($weightedGrade)}</div>
   </article>
 </section>
