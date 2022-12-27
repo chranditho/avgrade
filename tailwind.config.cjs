@@ -1,8 +1,14 @@
 /** @type {import("tailwindcss").Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js,svelte,ts}", "./node_modules/@brainandbones/skeleton/**/*.{html,js,svelte,ts}"],
+  content: [
+    "./src/**/*.{html,js,svelte,ts}",
+    "./node_modules/@brainandbones/skeleton/**/*.{html,js,svelte,ts}",
+  ],
   theme: {
-    extend: {}
+    extend: {},
   },
-  plugins: [require("@brainandbones/skeleton/tailwind.cjs"), require("@tailwindcss/forms")]
+  plugins: [
+    require("@brainandbones/skeleton/tailwind.cjs"),
+    require("@tailwindcss/forms"),
+  ],
 };
