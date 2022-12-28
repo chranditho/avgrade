@@ -1,8 +1,7 @@
 <script lang="ts">
   import { calculateAverageWeightedGrade } from "./calculator/calculateWeightedGrade";
   import { courses, weightedGrade } from "./store.js";
-  import { Button, GradientHeading } from "@brainandbones/skeleton";
-  import Logo from "./lib/Logo.svelte";
+  import { GradientHeading } from "@brainandbones/skeleton";
   import formatter from "./util/formatter.js";
   import AddIcon from "./lib/AddIcon.svelte";
   import RemoveIcon from "./lib/RemoveIcon.svelte";
@@ -57,35 +56,27 @@
     </article>
   {/each}
   <article class="flex gap-4 justify-center">
-    <Button
+    <button
+      class="btn-icon btn-filled-secondary"
       on:click={addCourse}
-      width="w-40 self-center"
     >
-      <svelte:fragment slot="lead">
-        <AddIcon />
-      </svelte:fragment>
+      <AddIcon />
       Add Course
-    </Button>
-    <Button
+    </button>
+    <button
+      class="btn-icon btn-filled-secondary"
       on:click={removeCourse}
-      width="w-40 self-center"
     >
-      <svelte:fragment slot="lead">
-        <RemoveIcon />
-      </svelte:fragment>
+      <RemoveIcon />
       Remove Course
-    </Button>
+    </button>
   </article>
-  <Button
-    variant="filled-primary"
+  <button
+    class="btn btn-filled-primary"
     on:click={setGrade}
-    width="w-32 self-center"
   >
-    <svelte:fragment slot="lead">
-      <Logo />
-    </svelte:fragment>
-    Calculate
-  </Button>
+    <span>Calculate</span>
+  </button>
   <article class="flex gap-x-4 justify-center font-bold">
     <p>Gewichtete Note:</p>
     <div id="weightedGrade">{formatter.format($weightedGrade)}</div>
